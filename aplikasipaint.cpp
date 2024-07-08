@@ -135,7 +135,7 @@ std::vector<_button> buttons;
 void AddButtons() {
     int buttonHeight = 50;
     int padding = 10;
-    int x = WIDTH - SIDEBAR_WIDTH + padding;
+    int x = padding;
     int y = padding;
 
     // Add color buttons
@@ -194,12 +194,12 @@ void Click() {
 }
 
 void CanvasAndUISetup() {
-    canvas.hitBox.SetBox(0, CANVASTOP, WIDTH - SIDEBAR_WIDTH, HEIGHT - CANVASTOP);
-    sidebar.hitBox.SetBox(WIDTH - SIDEBAR_WIDTH, CANVASTOP, SIDEBAR_WIDTH, HEIGHT - CANVASTOP);
+    canvas.hitBox.SetBox(SIDEBAR_WIDTH, CANVASTOP, WIDTH - SIDEBAR_WIDTH, HEIGHT - CANVASTOP);
+    sidebar.hitBox.SetBox(0, CANVASTOP, SIDEBAR_WIDTH, HEIGHT - CANVASTOP);
     ui.hitBox.SetBox(0, 0, WIDTH, CANVASTOP);
 
     canvas.bgColor.Set(255, 255, 255);
-    sidebar.bgColor.Set(200, 200, 200);
+    sidebar.bgColor.Set(224, 224, 224);
     ui.bgColor.Set(200, 200, 200);
 
     canvas.DrawSurface();
