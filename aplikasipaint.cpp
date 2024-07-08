@@ -4,8 +4,8 @@
 #include <vector>
 
 // Constants
-const int WIDTH = 640, HEIGHT = 480, CANVASTOP = 0, SIDEBAR_WIDTH = 60;
-const char* windowTitle = "Painter";
+const int WIDTH = 1000, HEIGHT = 800, CANVASTOP = 0, SIDEBAR_WIDTH = 60;
+const char* windowTitle = "Painter by Kelompok 9";
 
 // Window and renderer
 SDL_Window* window = nullptr;
@@ -139,7 +139,10 @@ void AddButtons() {
     int y = padding;
 
     // Add color buttons
-    std::vector<_color> colors = { {255, 0, 0}, {0, 255, 0}, {0, 0, 255}, {0, 0, 0} };
+    std::vector<_color> colors = {
+        {255, 102, 102}, {255,178,102}, { 255, 255, 102 }, {0, 153, 0}, {102, 255, 255},
+        {102, 178, 255}, {178, 102, 255}, {255, 102, 178}, {64, 64, 64}
+    };
     for (const auto& color : colors) {
         _button newButt;
         newButt.surface.hitBox.SetBox(x, y, SIDEBAR_WIDTH - 2 * padding, buttonHeight);
@@ -173,16 +176,16 @@ void Click() {
     if (sidebar.hitBox.CheckInbound(mousePos.first, mousePos.second)) {
         for (size_t i = 0; i < buttons.size(); i++) {
             if (buttons[i].surface.hitBox.CheckInbound(mousePos.first, mousePos.second)) {
-                if (i < 4) {
+                if (i < 8) {
                     brush.SetColor(buttons[i].surface.bgColor);  // Color buttons
                 }
-                else if (i == 4) {
+                else if (i == 8) {
                     brush.SetColor(canvas.bgColor);  // Eraser button
                 }
-                else if (i == 5) {
+                else if (i == 9) {
                     brush.ChangeSize(1);  // Increase brush size
                 }
-                else if (i == 6) {
+                else if (i == 10) {
                     brush.ChangeSize(-1);  // Decrease brush size
                 }
             }
